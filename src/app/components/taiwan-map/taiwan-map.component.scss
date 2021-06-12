@@ -1,0 +1,19 @@
+.svg-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #414345, #232526);
+}
+svg{
+    height: 90vh;
+}
+path {
+  //   stroke: #fff; //線條的背景是stroke
+  //   fill: transparent; //SVG的背景是fill
+  transition: 0.4s;
+  cursor: pointer; //滑鼠移入出現手指
+  &:hover {
+    fill: rgba(255, 202, 40, 0.5);
+    stroke: #ffca28;
+    transform: translate(-5px, -5px);
+  }
+}

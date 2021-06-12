@@ -5,9 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { TaiwanMapComponent } from './components/taiwan-map/taiwan-map.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaiwanMapComponent
   ],
   imports: [
     BrowserModule,

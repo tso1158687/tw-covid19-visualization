@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import * as d3 from 'd3';
-import 'd3-geo'
-import * as d3-geo from 'd3-geo';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
