@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TaiwanMapComponent } from './components/taiwan-map/taiwan-map.component';
 import { LottieIconModule } from './modules/lottie-icon/lottie-icon.module';
-import { ChartsModule } from 'ng2-charts';
+import { ChartModule } from './modules/chart/chart.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,7 @@ import { ChartsModule } from 'ng2-charts';
     BrowserAnimationsModule,
     LottieIconModule,
     NgxChartsModule,
-    ChartsModule
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
