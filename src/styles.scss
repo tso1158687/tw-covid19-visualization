@@ -5,14 +5,11 @@
 @include nb-install() {
   @include nb-theme-global();
 };
-/* You can add global styles to this file, and also import other style files */
-// @import 'tailwindcss/base';
-// @import 'tailwindcss/components';
-// @import 'tailwindcss/utilities';
 
-@import url('https://fonts.googleapis.com/css2?family=Noto');
-html, body { height: 100%; }
-*{
-    font: 'Noto Sans TC' !important;
-}
-body { margin: 0; font-family: 'Noto Sans TC', sans-serif !important; }
+
+// @import url('https://fonts.googleapis.com/css2?family=Noto');
+// html, body { height: 100%; }
+// *{
+//     font: 'Noto Sans TC' !important;
+// }
+// body { margin: 0; font-family: 'Noto Sans TC', sans-serif !important; }
