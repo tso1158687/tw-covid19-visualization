@@ -8,6 +8,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TaiwanMapComponent } from './components/taiwan-map/taiwan-map.component';
 import { LottieIconModule } from './modules/lottie-icon/lottie-icon.module';
 import { ChartModule } from './modules/chart/chart.module';
+import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,10 @@ import { ChartModule } from './modules/chart/chart.module';
     BrowserAnimationsModule,
     LottieIconModule,
     NgxChartsModule,
-    ChartModule
+    ChartModule,
+    NbThemeModule.forRoot({ name: 'default' }),
+    NbLayoutModule,
+    NbEvaIconsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
