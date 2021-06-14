@@ -54,7 +54,6 @@ export class MobilityComponent implements OnInit {
         -48, -45, -48, -52, -70, -67, -48, -44,
       ],
       label: '公園',
-      yAxisID: 'y-axis-1',
     },
     {
       data: [
@@ -71,7 +70,6 @@ export class MobilityComponent implements OnInit {
         -57, -68, -73, -59, -57, -56, -58, -59, -71, -73, -57, -56,
       ],
       label: '大眾運輸站',
-      yAxisID: 'y-axis-1',
     },
     {
       data: [
@@ -86,7 +84,6 @@ export class MobilityComponent implements OnInit {
         -26, -18, -33, -27, -24, -23, -24, -25, -21, -33, -25, -22,
       ],
       label: '工作場所',
-      yAxisID: 'y-axis-1',
     },
     {
       data: [
@@ -100,7 +97,6 @@ export class MobilityComponent implements OnInit {
         17, 14, 20, 21, 21, 18, 17,
       ],
       label: '住宅區',
-      yAxisID: 'y-axis-1',
     },
   ];
   public lineChartLabels: Label[] = [
@@ -264,79 +260,33 @@ export class MobilityComponent implements OnInit {
     '2021-06-07',
     '2021-06-08',
   ];
-  public lineChartOptions: ChartOptions & { annotation: any } = {
-    responsive: false,
-    maintainAspectRatio: true,
+  lineChartOptions: ChartOptions = {
+    responsive: true,
+    responsiveAnimationDuration: 300,
+
+    tooltips: {
+      callbacks: {
+        label: (tooltipItems) => {
+          const text = Number(tooltipItems.value) > 0 ? '上升' : '下降';
+          return `${text} ${tooltipItems.value} %`;
+        },
+      },
+    },
     scales: {
-      // We use this empty structure as a placeholder for dynamic theming.
-      xAxes: [{}],
-      yAxes: [
+      xAxes: [
         {
-          id: 'y-axis-0',
-          position: 'left',
-        },
-        {
-          id: 'y-axis-1',
-          position: 'right',
           gridLines: {
-            // color: 'rgba(255,0,0,0.3)',
-          },
-          ticks: {
-            // fontColor: 'red',
-            beginAtZero: true,
+            color: 'rgba(0, 0, 0, 0)',
           },
         },
       ],
     },
-    annotation: {
-      annotations: [
-        {
-          type: 'line',
-          mode: 'vertical',
-          scaleID: 'x-axis-0',
-          value: 'March',
-          borderColor: 'orange',
-          borderWidth: 2,
-          label: {
-            enabled: true,
-            fontColor: 'orange',
-            content: 'LineAnno',
-          },
-        },
-      ],
-    },
+    // maintainAspectRatio: false,
   };
-  public lineChartColors: Color[] = [
-    {
-      // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-    },
-    {
-      // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)',
-    },
-    {
-      // red
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-    },
-  ];
-  public lineChartLegend = true;
-  public lineChartType: ChartType = 'line';
+  lineChartColors: Color[] = [];
+  lineChartLegend = true;
+  lineChartType: ChartType = 'line';
+  lineChartPlugins = [];
   constructor() {}
 
   ngOnInit(): void {}
