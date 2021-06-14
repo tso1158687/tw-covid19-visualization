@@ -1,6 +1,6 @@
 <nb-layout>
   <nb-layout-header fixed>
-   三級情報
+    <nb-icon icon="alert-triangle-outline"></nb-icon> 三級情報
   </nb-layout-header>
 
   <nb-layout-column>
@@ -17,49 +17,167 @@
             height="100%"
           ></ng-lottie>
         </div>
-       
       </div>
     </div>
-    <div class="today">
-      <nb-card status="danger">
+    <div class="section">
+      <div class="section-title title">今日情報</div>
+      <div class="section-content">資料來源: 國家衛生研究院</div>
+    </div>
+    <div class="today" *ngIf="!!today">
+      <nb-card status="info">
         <nb-card-header>累計確診</nb-card-header>
         <nb-card-body>
-          13106
-          <nb-icon icon="arrow-circle-up-outline"></nb-icon>
+          <div class="today-number">
+            {{ today.total }}
+            <nb-icon [icon]="getIcon('total')"></nb-icon>
+          </div>
+          <div class="compare-yesterday-number">
+            相較於昨日: {{ yesterday.total }}
+          </div>
         </nb-card-body>
       </nb-card>
-      <nb-card status="danger">
+      <nb-card status="warning">
         <nb-card-header>今日確診</nb-card-header>
         <nb-card-body>
-          185
-          <nb-icon icon="arrow-circle-up-outline"></nb-icon>
+          <div class="today-number">
+            {{ today.today }}
+            <nb-icon [icon]="getIcon('today')"></nb-icon>
+          </div>
+
+          <div class="compare-yesterday-number">
+            相較於昨日: {{ compareWithYesterday("today") }}
+          </div>
         </nb-card-body>
       </nb-card>
       <nb-card status="danger">
         <nb-card-header>今日死亡</nb-card-header>
         <nb-card-body>
-          15
-          <nb-icon icon="arrow-circle-up-outline"></nb-icon>
+          <div class="today-number">
+            {{ today.death }}
+            <nb-icon [icon]="getIcon('death')"></nb-icon>
+          </div>
+          <div class="compare-yesterday-number">
+            相較於昨日: {{ compareWithYesterday("death") }}
+          </div>
         </nb-card-body>
       </nb-card>
       <nb-card status="success">
         <nb-card-header>疫苗接種人口</nb-card-header>
         <nb-card-body>
-          799129
-          <nb-icon icon="arrow-circle-up-outline"></nb-icon>
+          <div class="today-number">
+            {{ today.vaccination }}
+            <nb-icon [icon]="getIcon('vaccination')"></nb-icon>
+          </div>
+          <div class="compare-yesterday-number">
+            相較於昨日: {{ compareWithYesterday("vaccination") }}
+          </div>
         </nb-card-body>
       </nb-card>
     </div>
-    <nb-card status="danger">
+    <div class="section">
+      <div class="section-title title">人流趨勢報告</div>
+      <div class="section-description">顯示在疫情下，大眾移動的趨勢百分比</div>
+      <div class="section-content">
+        資料來源: Google COVID-19 社區人流趨勢報告
+      </div>
+      <div class="section-content">
+        ＊點擊圖例可以比較不同的趨勢<br />
+        ＊移動圖表可以看到不同日期與基準點的比較<br />
+        ＊下方有資料說明
+      </div>
+    </div>
+    <nb-card accent="info">
       <nb-card-body>
         <app-mobility></app-mobility>
       </nb-card-body>
     </nb-card>
+    <div class="section">
+      <div class="section-title title">什麼是社區人流趨勢報告？</div>
+      <div class="section-description">
+        社區人流趨勢報告會依地區顯示各種地點 (例如雜貨店和公園)
+        的造訪人數變化情況。
+      </div>
+    </div>
+    <div class="chart-description-section">
+      <nb-card accent="danger">
+        <nb-card-header>
+          <nb-icon icon="headphones-outline"></nb-icon>
+          零售店和休閒設施</nb-card-header
+        >
+        <nb-card-body>
+          <div class="chart-description">
+            餐廳、咖啡廳、購物中心、主題樂園、博物館、圖書館、電影院和其他類似場所。
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card accent="info">
+        <nb-card-header>
+          <nb-icon icon="film-outline"></nb-icon> 雜貨店和藥局</nb-card-header
+        >
+        <nb-card-body>
+          <div class="chart-description">
+            雜貨市場、食品量販店、農夫市集、特殊食材專賣店、藥妝店、藥局和其他類似場所。
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card accent="success">
+        <nb-card-header>
+          <nb-icon icon="film-outline"></nb-icon> 公園</nb-card-header
+        >
+        <nb-card-body>
+          <div class="chart-description">
+            國家公園、公共海灘、碼頭、寵物公園、廣場、公共花園和其他類似場所。
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card accent="danger">
+        <nb-card-header>
+          <nb-icon icon="car-outline"></nb-icon> 大眾運輸站</nb-card-header
+        >
+        <nb-card-body>
+          <div class="chart-description">
+            地鐵站、公車站和火車站等大眾運輸轉運站和其他類似場所。
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card accent="warning">
+        <nb-card-header>
+          <nb-icon icon="printer-outline"></nb-icon> 工作場所</nb-card-header
+        >
+        <nb-card-body>
+          <div class="chart-description">工作場所的人流趨勢。</div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card accent="success">
+        <nb-card-header>
+          <nb-icon icon="home-outline"></nb-icon> 住宅區</nb-card-header
+        >
+        <nb-card-body>
+          <div class="chart-description">住宅區的人流趨勢。</div>
+        </nb-card-body>
+      </nb-card>
+    </div>
   </nb-layout-column>
 
   <nb-layout-footer fixed>
-    <button nbButton>
-      <nb-icon icon="github-outline"></nb-icon>
-    </button>
+    <div>
+      作者:
+      <a
+        href="https://www.facebook.com/junyou.zheng"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Jason Zheng
+      </a>
+    </div>
+    <div>
+      <a
+        href="https://github.com/tso1158687/tw-covid19-visualization"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <nb-icon icon="github-outline"></nb-icon>
+      </a>
+    </div>
   </nb-layout-footer>
 </nb-layout>

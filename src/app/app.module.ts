@@ -9,6 +9,8 @@ import { LottieIconModule } from './modules/lottie-icon/lottie-icon.module';
 import { ChartModule } from './modules/chart/chart.module';
 import { NbThemeModule, NbLayoutModule, NbIconModule, NbButtonModule, NbCardModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +23,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     LottieIconModule,
     ChartModule,
     NbThemeModule.forRoot({ name: 'default' }),
+    AngularFireModule.initializeApp(environment.firebase),
     NbLayoutModule,
     NbEvaIconsModule,
     NbIconModule,

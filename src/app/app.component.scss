@@ -1,5 +1,5 @@
 :host {
-  background-color: black;
+  // background-color: black;
   height: 100vh;
   width: 100vw;
 }
@@ -16,6 +16,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.5em;
+  text-align: center;
 }
 
 .today {
@@ -27,4 +28,45 @@
     margin-right: 5px;
     margin-left: 5px;
   }
+}
+@media (min-width: 768px) {
+  .today {
+    flex-direction: row;
+    nb-card {
+      width: 50%;
+    }
+  }
+}
+
+.today-number {
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+}
+
+.compare-yesterday-number {
+  color: #70757a;
+}
+.section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .section-title {
+    margin-bottom: 10px;
+  }
+  .section-description {
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .section-content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #70757a;
+  }
+}
+.chart-description{
+  font-size: 1.5rem;
 }

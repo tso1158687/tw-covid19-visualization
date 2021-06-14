@@ -279,10 +279,10 @@ export class MobilityComponent implements OnInit {
           id: 'y-axis-1',
           position: 'right',
           gridLines: {
-            color: 'rgba(255,0,0,0.3)',
+            // color: 'rgba(255,0,0,0.3)',
           },
           ticks: {
-            fontColor: 'red',
+            // fontColor: 'red',
             beginAtZero: true,
           },
         },
