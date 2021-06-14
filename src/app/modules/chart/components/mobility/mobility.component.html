@@ -1,10 +1,19 @@
 <div class="flex">
+  <div>
+    <nb-radio-group [(ngModel)]="option" (ngModelChange)="changeChartScale($event)">
+      <nb-radio
+        *ngFor="let option of options"
+        [value]="option.value">
+        {{ option.label }}
+      </nb-radio>
+    </nb-radio-group>
+  </div>
   <div class="flex-item">
     <div style="display: block">
       <canvas
         baseChart
-        width="1920"
-        height="1200"
+       
+        height="600"
         [datasets]="lineChartData"
         [labels]="lineChartLabels"
         [options]="lineChartOptions"
