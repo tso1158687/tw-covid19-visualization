@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tw-covid19-visualization": {
+      "hosting": {
+        "tw-covid19-visualization": [
+          "tw-covid19-visualization"
+        ]
+      }
+    }
+  }
+}
