@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaiwanMapComponent } from './components/taiwan-map/taiwan-map.component';
 import { LottieIconModule } from './modules/lottie-icon/lottie-icon.module';
 import { ChartModule } from './modules/chart/chart.module';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbIconModule, NbButtonModule, NbCardModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 @NgModule({
   declarations: [
@@ -22,7 +22,10 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     ChartModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    NbIconModule,
+    NbButtonModule,
+    NbCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

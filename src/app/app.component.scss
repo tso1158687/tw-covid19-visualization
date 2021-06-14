@@ -17,3 +17,14 @@
   -webkit-text-fill-color: transparent;
   line-height: 1.5em;
 }
+
+.today {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  nb-card {
+    flex: 1;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}

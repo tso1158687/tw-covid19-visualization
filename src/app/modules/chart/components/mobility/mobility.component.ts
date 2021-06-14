@@ -265,7 +265,8 @@ export class MobilityComponent implements OnInit {
     '2021-06-08',
   ];
   public lineChartOptions: ChartOptions & { annotation: any } = {
-    responsive: true,
+    responsive: false,
+    maintainAspectRatio: true,
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
@@ -282,6 +283,7 @@ export class MobilityComponent implements OnInit {
           },
           ticks: {
             fontColor: 'red',
+            beginAtZero: true,
           },
         },
       ],
