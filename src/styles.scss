@@ -35,15 +35,17 @@
   color: #f5f5f7;
 }
 
-nb-icon[ng-reflect-icon="arrow-circle-up-outline"] {
-  font-size: 2rem;
-  color: #ff3d71;
+nb-icon {
+
+  font-size: 2rem !important;
+  .eva-arrow-circle-up-outline{
+    color: #ff3d71;
+  }
+  .eva-arrow-circle-down-outline{
+    color: #00d68f;
+  }
 }
 
-nb-icon[ng-reflect-icon="arrow-circle-down-outline"] {
-  font-size: 2rem;
-  color: #00d68f;
-}
 .nb-theme-default nb-layout .layout {
   background-color: #fff;
 }
@@ -68,10 +70,3 @@ nb-icon[ng-reflect-icon="arrow-circle-down-outline"] {
     margin-bottom: 3px;
   }
 }
-
-// .chart-description-section{
-//   nb-card{
-//     flex-direction: row;
-//     width: 350px;
-//   }
-// }

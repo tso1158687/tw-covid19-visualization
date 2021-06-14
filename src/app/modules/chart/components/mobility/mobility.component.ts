@@ -24,7 +24,7 @@ export class MobilityComponent implements OnInit {
     { value: 1, label: '從今年起' },
     { value: 2, label: '近一個月' },
   ];
-  option = 1;
+  option = 2;
   public lineChartData: ChartDataSets[] = [
     {
       data: CHART_DATA_RETAIL,
@@ -56,6 +56,7 @@ export class MobilityComponent implements OnInit {
     responsive: true,
     responsiveAnimationDuration: 300,
     maintainAspectRatio: false,
+    
     tooltips: {
       callbacks: {
         label: (tooltipItems) => {
@@ -80,13 +81,15 @@ export class MobilityComponent implements OnInit {
   lineChartPlugins = [];
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.changeChartScale(2)
+  }
   changeChartScale(type: number): void {
     if (type === 1) {
       this.lineChartLabels = CHART_LABEL;
     } else {
       this.lineChartLabels = this.lineChartLabels.slice(
-        Math.max(this.lineChartLabels.length - 10, 1)
+        Math.max(this.lineChartLabels.length - 30, 1)
       );
     }
     this.chart?.update();
