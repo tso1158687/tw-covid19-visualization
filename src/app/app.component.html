@@ -21,6 +21,9 @@
     </div>
     <div class="section">
       <div class="section-title title">今日情報</div>
+      <div class="section-content">
+        最後更新時間: {{ today.updateTime.toDate() | date: 'y-M-d h:mm:ss a' }}
+      </div>
       <div class="section-content">資料來源: 國家衛生研究院</div>
     </div>
     <div class="today" *ngIf="!!today">
