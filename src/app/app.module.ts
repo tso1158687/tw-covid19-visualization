@@ -11,6 +11,7 @@ import { NbThemeModule, NbLayoutModule, NbIconModule, NbButtonModule, NbCardModu
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { AngularFireModule } from '@angular/fire';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LottieIconModule,
@@ -28,7 +30,7 @@ import { AngularFireModule } from '@angular/fire';
     NbEvaIconsModule,
     NbIconModule,
     NbButtonModule,
-    NbCardModule
+    NbCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
