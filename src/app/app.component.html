@@ -6,8 +6,8 @@
   <nb-layout-column>
     <div class="container mx-auto">
       <div>
-        <h1 class="title">#待在家</h1>
-        <h1 class="title">#stayAtHome</h1>
+        <h1 class="title">#三級警戒</h1>
+        <h1 class="title">#延長至7/26</h1>
       </div>
       <div class="flex space-x-2">
         <div class="flex-1">
@@ -21,21 +21,15 @@
     </div>
     <div class="section">
       <div class="section-title title">今日情報</div>
+      <div class="section-content">
+        最後更新時間:
+        <ng-container *ngIf="!!today">
+          {{ today.updateTime.toDate() | date: "y-M-d h:mm:ss a" }}
+        </ng-container>
+      </div>
       <div class="section-content">資料來源: 國家衛生研究院</div>
     </div>
     <div class="today" *ngIf="!!today">
-      <nb-card status="info">
-        <nb-card-header>累計確診</nb-card-header>
-        <nb-card-body>
-          <div class="today-number">
-            {{ today.total }}
-            <nb-icon [icon]="getIcon('total')"></nb-icon>
-          </div>
-          <div class="compare-yesterday-number">
-            相較於昨日: {{ yesterday.total }}
-          </div>
-        </nb-card-body>
-      </nb-card>
       <nb-card status="warning">
         <nb-card-header>今日確診</nb-card-header>
         <nb-card-body>
@@ -61,6 +55,42 @@
           </div>
         </nb-card-body>
       </nb-card>
+      <nb-card status="info">
+        <nb-card-header>累計確診</nb-card-header>
+        <nb-card-body>
+          <div class="today-number">
+            {{ today.total }}
+            <nb-icon [icon]="getIcon('total')"></nb-icon>
+          </div>
+          <div class="compare-yesterday-number">
+            相較於昨日: {{ yesterday.total }}
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card status="primary">
+        <nb-card-header>總計死亡</nb-card-header>
+        <nb-card-body>
+          <div class="today-number">
+            {{ today.totalDeath }}
+            <nb-icon [icon]="getIcon('totalDeath')"></nb-icon>
+          </div>
+          <div class="compare-yesterday-number">
+            相較於昨日: {{ compareWithYesterday("totalDeath") }}
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="section">
+      <div class="section-title title">今日疫苗接種情形</div>
+      <div class="section-content">
+        最後更新時間:
+        <ng-container *ngIf="!!today">
+          {{ today.updateTime.toDate() | date: "y-M-d h:mm:ss a" }}
+        </ng-container>
+      </div>
+      <div class="section-content">資料來源: 國家衛生研究院</div>
+    </div>
+    <div class="today" *ngIf="!!today">
       <nb-card status="success">
         <nb-card-header>疫苗接種人口</nb-card-header>
         <nb-card-body>
@@ -70,6 +100,24 @@
           </div>
           <div class="compare-yesterday-number">
             相較於昨日: {{ compareWithYesterday("vaccination") }}
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card status="info">
+        <nb-card-header>第一劑</nb-card-header>
+        <nb-card-body>
+          <div class="today-number">
+            {{ today.injection.v1 }}%
+            <nb-icon icon="arrow-circle-up-outline"></nb-icon>
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <nb-card status="warning">
+        <nb-card-header>第二劑</nb-card-header>
+        <nb-card-body>
+          <div class="today-number">
+            {{ today.injection.v2 }}%
+            <nb-icon icon="arrow-circle-up-outline"></nb-icon>
           </div>
         </nb-card-body>
       </nb-card>
