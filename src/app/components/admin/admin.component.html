@@ -1,0 +1,33 @@
+<p>admin works!</p>
+<ng-container [formGroup]="initForm">
+    <div>
+        <label>pathName</label>
+        <input type="text" formControlName="pathName" />
+      </div>
+  <div>
+    <label>today</label>
+    <input type="number" formControlName="today" />
+  </div>
+  <div>
+    <label>total</label>
+    <input type="number" formControlName="total" />
+  </div>
+  <div>
+    <label>death</label>
+    <input type="number" formControlName="death" />
+  </div>
+  <div>
+    <label>totalDeath</label>
+    <input type="number" formControlName="totalDeath" />
+  </div>
+  <div>
+    <label>vaccination</label>
+    <input type="number" formControlName="vaccination" />
+  </div>
+  <div>
+    <label>injection</label>
+    <input type="number" formControlName="v1" />
+    <input type="number" formControlName="v2" />
+  </div>
+</ng-container>
+<button (click)="publishData()">publish</button>

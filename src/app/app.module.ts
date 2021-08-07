@@ -12,10 +12,13 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './components/admin/admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    TaiwanMapComponent
+    TaiwanMapComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     NbIconModule,
     NbButtonModule,
     NbCardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

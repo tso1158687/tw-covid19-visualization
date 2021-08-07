@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.vaccinationService.getVaccinationStatusList().subscribe(e=>console.log(e))
+    // this.vaccinationService.getVaccinationStatusList().subscribe(e=>console.log(e))
     this.items$.subscribe((e) => {
       console.log(e);
       this.today = e[0];
